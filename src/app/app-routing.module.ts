@@ -1,3 +1,4 @@
+import { ChannelPlaylistsComponent } from './components/channel-playlists/channel-playlists.component';
 import { SearchInsideChannelComponent } from './components/search-inside-channel/search-inside-channel.component';
 import { VideoComponent } from './components/video/video.component';
 import { NgModule } from '@angular/core';
@@ -9,6 +10,7 @@ const routes: Routes = [
   { path: 'video/:id', component: VideoComponent},
   { path: 'privateChannelPlaylist', component: PrivateChannelPlaylistComponent},
   { path: 'searchInsideChannel', component: SearchInsideChannelComponent},
+  { path: 'channelPlaylits', component: ChannelPlaylistsComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'searchInsideChannel' }
 ];
 
