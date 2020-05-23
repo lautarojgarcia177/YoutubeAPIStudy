@@ -1,3 +1,5 @@
+import { WatchComponent } from './components/watch/watch.component';
+import { PlayerComponent } from './components/player/player.component';
 import { ChannelPlaylistsComponent } from './components/channel-playlists/channel-playlists.component';
 import { SearchInsideChannelComponent } from './components/search-inside-channel/search-inside-channel.component';
 import { VideoComponent } from './components/video/video.component';
@@ -7,6 +9,8 @@ import { PrivateChannelPlaylistComponent } from './components/private-channel-pl
 
 
 const routes: Routes = [
+  { path: 'watch', component: WatchComponent},
+  { path: 'player/:id', component: PlayerComponent},
   { path: 'video/:id', component: VideoComponent},
   { path: 'privateChannelPlaylist', component: PrivateChannelPlaylistComponent},
   { path: 'searchInsideChannel', component: SearchInsideChannelComponent},

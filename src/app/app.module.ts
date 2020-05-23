@@ -10,7 +10,13 @@ import { VideoComponent } from './components/video/video.component';
 import {YouTubePlayerModule} from '@angular/youtube-player';
 import { PrivateChannelPlaylistComponent } from './components/private-channel-playlist/private-channel-playlist.component';
 import { ChannelPlaylistsComponent } from './components/channel-playlists/channel-playlists.component';
+import { PlayerComponent } from './components/player/player.component';
 
+import { EmbedVideo } from 'ngx-embed-video';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { WatchComponent } from './components/watch/watch.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +24,9 @@ import { ChannelPlaylistsComponent } from './components/channel-playlists/channe
     VideoComponent,
     PrivateChannelPlaylistComponent,
     SearchInsideChannelComponent,
-    ChannelPlaylistsComponent
+    ChannelPlaylistsComponent,
+    PlayerComponent,
+    WatchComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +34,10 @@ import { ChannelPlaylistsComponent } from './components/channel-playlists/channe
     HttpClientModule,
     FormsModule,
     YouTubePlayerModule,
+    EmbedVideo.forRoot(),
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

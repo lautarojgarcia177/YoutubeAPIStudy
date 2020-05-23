@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 
@@ -11,6 +11,8 @@ export class VideoComponent implements OnInit {
 
   videoId;
 
+  @ViewChild('myPlayer') myPlayer: any;
+
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -22,6 +24,8 @@ export class VideoComponent implements OnInit {
     document.body.appendChild(tag);
 
     this.videoId = this.route.snapshot.paramMap.get('id');
+
+    console.log('YT object', this.myPlayer);
   }
 
 }
