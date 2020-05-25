@@ -8,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class WatchComponent implements OnInit {
 
   title = 'dummyApp-YTIFrameAPI';
+  
+  finalizoElVideo = false;
+
+  seekTo: number = 30;
+
 
   /* 1. Some required variables which will be used by YT API*/
   public YT: any;
@@ -43,10 +48,12 @@ export class WatchComponent implements OnInit {
     this.reframed = false;
     this.player = new window['YT'].Player('player', {
       videoId: this.video,
+      height: '390',
+      width: '640',
       playerVars: {
-        autoplay: 1,
+        autoplay: 0,
         modestbranding: 1,
-        controls: 0,
+        controls: 1,
         disablekb: 1,
         rel: 0,
         showinfo: 0,
@@ -66,15 +73,15 @@ export class WatchComponent implements OnInit {
   onPlayerReady(event) {
     if (this.isRestricted) {
       event.target.mute();
-      event.target.playVideo();
+      // event.target.playVideo();
     } else {
-      event.target.playVideo();
+      // event.target.playVideo();
     }
   }
 
   /* 5. API will call this function when Player State changes like PLAYING, PAUSED, ENDED */
   onPlayerStateChange(event) {
-    console.log(event)
+    // console.log(event)
     switch (event.data) {
       case window['YT'].PlayerState.PLAYING:
         if (this.cleanTime() == 0) {
@@ -89,7 +96,9 @@ export class WatchComponent implements OnInit {
         };
         break;
       case window['YT'].PlayerState.ENDED:
-        console.log('ended ');
+        console.log('ended');
+        this.finalizoElVideo = true;
+        console.log(this.finalizoElVideo);
         break;
     };
   };
@@ -109,5 +118,28 @@ export class WatchComponent implements OnInit {
         break;
     };
   };
+
+  play() {
+    this.finalizoElVideo = false;
+    this.player.playVideo();
+  }
+
+  pause() {
+    this.player.pauseVideo();
+  }
+
+  stop() {
+    this.player.stopVideo();
+  }
+
+  showInfo() {
+    console.log('been here');
+  }
+
+  seekToAndPlay() {
+    this.finalizoElVideo = false;
+    this.player.seekTo(this.seekTo, true);
+    this.player.playVideo();
+  }
 
 }

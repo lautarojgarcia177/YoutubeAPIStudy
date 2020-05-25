@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'privateChannelPlaylist', component: PrivateChannelPlaylistComponent},
   { path: 'searchInsideChannel', component: SearchInsideChannelComponent},
   { path: 'channelPlaylits', component: ChannelPlaylistsComponent },
-  { path: '**', pathMatch: 'full', redirectTo: 'searchInsideChannel' }
+  { path: '**', pathMatch: 'full', redirectTo: 'watch' }
 ];
 
 @NgModule({

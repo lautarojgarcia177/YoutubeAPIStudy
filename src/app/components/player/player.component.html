@@ -1,18 +1,6 @@
-<label for="yturl">Url del video</label>
-<br>
-<input id="yturl" type="text" style="margin-bottom: 50px;">
-
-<div [innerHtml]="yt_iframe_html"></div>
-
-<button mat-stroked-button color="accent" (click)="play()">Play</button>
-<button mat-stroked-button color="accent">Pause</button>
-<button mat-stroked-button color="accent">Stop</button>
-<div  #asd class="example-button-container">
-    <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
-      <mat-icon>plus_one</mat-icon>
-    </button>
+<div class="lau-container">
+  <div class="lau-player">
   </div>
-
-<div *ngIf="finalizoElVideo">
-    <p>El video ha finalizado</p>
+  <div class="lau-controls">
+  </div>
 </div>
