@@ -1,18 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-watch',
   templateUrl: './watch.component.html',
   styleUrls: ['./watch.component.scss']
 })
+
+// docs: 
+// https://developers.google.com/youtube/iframe_api_reference
+// https://medium.com/@gouravkajal/integrate-youtube-iframe-player-api-in-angular-98ab9661aff6
 export class WatchComponent implements OnInit {
 
   title = 'dummyApp-YTIFrameAPI';
   
-  finalizoElVideo = false;
+  finalizoElVideo: boolean;
 
   seekTo: number = 30;
 
+  volume: number = 80;
 
   /* 1. Some required variables which will be used by YT API*/
   public YT: any;
@@ -21,6 +27,8 @@ export class WatchComponent implements OnInit {
   public reframed: Boolean = false;
 
   isRestricted = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  constructor(private route: ActivatedRoute) {}
 
   /* 2. Initialize method for YT IFrame API */
   init() {
@@ -40,7 +48,7 @@ export class WatchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.video = 'nRiOw3qGYq4';
+    this.video = this.route.snapshot.paramMap.get('id');
     this.init();
   }
 
@@ -140,6 +148,18 @@ export class WatchComponent implements OnInit {
     this.finalizoElVideo = false;
     this.player.seekTo(this.seekTo, true);
     this.player.playVideo();
+  }
+
+  mute() {
+    this.player.mute();
+  }
+
+  unmute() {
+    this.player.unMute();
+  }
+
+  setVolume() {
+    this.player.setVolume(this.volume);
   }
 
 }

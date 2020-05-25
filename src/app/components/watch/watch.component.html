@@ -9,6 +9,17 @@
                 <button style="margin-right: 5px;" mat-raised-button color="primary" (click)="pause()">Pause</button>
                 <button style="margin-right: 5px;" mat-raised-button color="primary" (click)="stop()">Stop</button>
         </div>
+        <div class="lau-controls" style="margin-top: 10px;">
+            <button style="margin-right: 5px;" mat-raised-button color="primary" (click)="mute()">Mute</button>
+            <button style="margin-right: 5px;" mat-raised-button color="primary" (click)="unmute()">UnMute</button>
+            <form class="example-form">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Setear volumen</mat-label>
+                  <input type="number" matInput placeholder="Volumen de 0 a 100" [(ngModel)]="volume" name="volume">
+                </mat-form-field>
+                <button style="margin-left: 5px;" mat-raised-button color="accent" (click)="setVolume()">Setear Volumen</button>
+              </form>
+    </div>
         <div style="margin-top: 10px;">
             <button mat-raised-button (click)="showInfo()">Info</button>      
         </div>
@@ -22,13 +33,10 @@
               </form>
         </div>
     </div>   
-    <div *ngIf="finalizoElVideo">
-        <p>El video ha finalizado</p>
-    </div>
     <div>
         <h3>Datos del video</h3>
         <p>
-            
+
         </p>
     </div>
 </div>

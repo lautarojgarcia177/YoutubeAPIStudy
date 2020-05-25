@@ -9,13 +9,13 @@ import { PrivateChannelPlaylistComponent } from './components/private-channel-pl
 
 
 const routes: Routes = [
-  { path: 'watch', component: WatchComponent},
+  { path: 'watch/:id', component: WatchComponent},
   { path: 'player/:id', component: PlayerComponent},
   { path: 'video/:id', component: VideoComponent},
   { path: 'privateChannelPlaylist', component: PrivateChannelPlaylistComponent},
   { path: 'searchInsideChannel', component: SearchInsideChannelComponent},
   { path: 'channelPlaylits', component: ChannelPlaylistsComponent },
-  { path: '**', pathMatch: 'full', redirectTo: 'watch' }
+  { path: '**', pathMatch: 'full', redirectTo: 'watch/2Uj1A9AguFs' }
 ];
 
 @NgModule({

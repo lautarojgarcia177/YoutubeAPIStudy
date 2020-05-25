@@ -20,6 +20,7 @@ import { WatchComponent } from './components/watch/watch.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatInputModule} from '@angular/material/input';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {MatInputModule} from '@angular/material/input';
     MatIconModule,
     MatGridListModule,
     MatDividerModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
